@@ -1,6 +1,6 @@
 angular.module('angular-custom-select-examples', ['angular-custom-select'])
 
-  .controller 'ExamplesController', ($scope, $timeout) ->
+  .controller 'ExamplesController', ($scope) ->
 
     $scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']
     $scope.objects = [
