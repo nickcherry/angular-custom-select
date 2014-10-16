@@ -10,3 +10,8 @@ After installing [Bower](http://bower.io), run `bower install` from the project 
 ## Compiling for Development
 
 Run `gulp` to observe changes made to any `.coffee` files in the project, then respond by compiling/concatenating/copying the appropriate assets. The resulting files can be found in the `build` directory.
+
+
+## Compiling for Production
+
+Run 'gulp dist' to compile `angular-custom-select.min.js` for production.
