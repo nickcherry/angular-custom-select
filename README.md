@@ -1,6 +1,6 @@
 ## What is angular-custom-select?
 
-It's an AngularJS directive that builds easily styleable, functional dropdowns using `div`s, rather than the not-so-customizable `select` element. It supports `ng-model` and `ng-options`, as well as options to customize placeholder text, control disabled states, and specify the classes applied to the dropdown's elements.
+It's an AngularJS directive that builds easily styleable, functional dropdowns using `div`s, rather than the not-so-customizable `select` element. It supports `ng-model` and `ng-options`, as well as options to customize placeholder text, control disabled states, and specify the classes applied to the dropdown's elements. __You can see it in action [here](https://s3.amazonaws.com/angular-custom-select/example.html).__
 
 
 ## How can I get it?
