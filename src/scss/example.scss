@@ -128,7 +128,8 @@ h2 {
 
     .value {
       display: block;
-      padding: 13px 12px 0;
+      line-height: $custom-select-height - 2px;
+      padding: 0 12px;
     }
 
     &:last-of-type {
@@ -156,9 +157,6 @@ h2 {
 
   @media screen and (max-width: 400px) {
     font-size: 16px;
-    .option .value {
-      padding-top: 14px;
-    }
   }
 
 }
