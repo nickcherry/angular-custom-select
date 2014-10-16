@@ -111,7 +111,7 @@ h2 {
   position: absolute;
   right: 0;
   transform: translate3d(0,0,0); // enable hardware acceleration
-  transition: max-height 0.28s linear 0s;
+  transition: max-height 0.2s linear 0s;
 
   &.expanded {
     max-height: $custom-select-option-height * 6;
