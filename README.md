@@ -13,7 +13,7 @@ bower install angular-custom-select
 
 ### Or download it from GitHub
 
-In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download [that file](dist/angular-custom-select.min.js) and add it to your project.
+In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download [that file](dist/angular-custom-select.min.js) and include it in your project.
 
 
 ## How do I use it?
