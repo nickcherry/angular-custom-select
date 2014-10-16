@@ -56,14 +56,14 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
           # Compilation
           ###########################################################################
 
-          childScopes = []
+          optionScopes = []
 
           scope.$watchCollection collectionName, (collection) ->
 
-            if childScopes.length
-              for childScope in childScopes
-                childScope.$destroy()
-              childScopes = []
+            if optionScopes.length
+              for optionScope in optionScopes
+                optionScope.$destroy()
+              optionScopes = []
 
             iElem.empty()
 
