@@ -15,7 +15,6 @@
     "fs-extra": "~0.12.0",
     "gulp": "~3.8.8",
     "gulp-autoprefixer": "~1.0.1",
-    "gulp-awspublish": "0.0.23",
     "gulp-coffee": "~2.2.0",
     "gulp-concat": "~2.4.1",
     "gulp-file-include": "~0.5.1",
@@ -25,7 +24,6 @@
     "gulp-minify-html": "~0.1.5",
     "gulp-plumber": "~0.6.5",
     "gulp-ruby-sass": "~0.7.1",
-    "gulp-s3": "^0.3.0",
     "gulp-uglify": "~1.0.1",
     "gulp-util": "~3.0.1"
   }

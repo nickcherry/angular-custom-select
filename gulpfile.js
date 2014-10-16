@@ -5,7 +5,6 @@
 var Gulp = require('gulp');
 
 var AutoPrefixer = require('gulp-autoprefixer');
-var AWSPublish = require('gulp-awspublish');
 var FS = require('fs-extra');
 var Coffee = require('gulp-coffee');
 var Concat = require('gulp-concat');
@@ -15,7 +14,6 @@ var MinifyCss = require('gulp-minify-css');
 var MinifyHTML = require('gulp-minify-html');
 var Plumber = require('gulp-plumber');
 var SASS = require('gulp-ruby-sass');
-var S3 = require('gulp-s3');
 var Uglify = require('gulp-uglify');
 var Util = require('gulp-util');
 
@@ -34,6 +32,10 @@ paths.build = {
   dir: './build'
 };
 
+paths.dist = {
+  dir: './dist'
+};
+
 /* AWS Paths */
 paths.aws = {
   src: paths.build.dir + '/**/*'
@@ -42,7 +44,7 @@ paths.aws = {
 /* Dist Script Path */
 paths.distScripts = {
   destFile: 'angular-custom-select.min.js'
-  , destDir: paths.build.dir + '/js'
+  , destDir: paths.dist.dir
   , src: [ paths.src.dir + '/coffee/directives/custom-select.coffee' ]
 };
 paths.distScripts.watch = paths.distScripts.src;
@@ -82,9 +84,15 @@ paths.views.watch = paths.views.src;
 /********************************************************************/
 
 /* Clean Build Directory */
-Gulp.task('clean', function() {
+Gulp.task('clean-build', function() {
   if (FS.existsSync(paths.build.dir))
     FS.removeSync(paths.build.dir);
+});
+
+/* Clean Dist Directory */
+Gulp.task('clean-dist', function() {
+  if (FS.existsSync(paths.dist.dir))
+    FS.removeSync(paths.dist.dir);
 });
 
 /* Compile SCSS */
@@ -97,6 +105,7 @@ Gulp.task('sass', function () {
     .pipe(Gulp.dest(paths.styles.destDir));
 });
 
+/* Compile, Uglify, and Concatenate all Coffeescript/Javascript for Distribution */
 Gulp.task('distScripts', function() {
   return Gulp.src(paths.distScripts.src)
     .pipe(Plumber())
@@ -106,7 +115,7 @@ Gulp.task('distScripts', function() {
     .pipe(Gulp.dest(paths.distScripts.destDir));
 });
 
-/* Compile, Uglify, and Concatenate all Coffeescript/Javascript */
+/* Compile, Uglify, and Concatenate all Coffeescript/Javascript for Examples */
 Gulp.task('exampleScripts', function() {
   return Gulp.src(paths.exampleScripts.src)
     .pipe(Plumber())
@@ -116,7 +125,7 @@ Gulp.task('exampleScripts', function() {
     .pipe(Gulp.dest(paths.exampleScripts.destDir));
 });
 
-/* Copy Views/Templates */
+/* Copy Views/Templates for Examples */
 Gulp.task('views', function() {
   return Gulp.src(paths.views.src, { base: './src' })
     .pipe(Plumber())
@@ -135,22 +144,8 @@ Gulp.task('watch', function () {
   Gulp.watch(paths.views.watch, ['views']);
 });
 
-/* Push to AWS */
-Gulp.task('aws', ['clean', 'build'], function() {
-  var awsConfig = JSON.parse(FS.readFileSync('config/aws.json'));
-  
-  // var awsOptions = {};
-  // return Gulp.src("build/**/*")
-  // .pipe(S3(awsConfig, awsOptions));
 
-  var publisher = AWSPublish.create(awsConfig);
-  var headers = { 'Cache-Control': 'no-transform, public' };
-  return Gulp.src(paths.aws.src)
-    .pipe(publisher.publish(headers));
-
-});
-
-Gulp.task('default', ['clean', 'build', 'watch']);
-Gulp.task('build', ['distScripts', 'exampleScripts', 'sass', 'views']);
-Gulp.task('push', ['aws']);
+Gulp.task('default', ['clean-build', 'build', 'watch']);
+Gulp.task('build', ['exampleScripts', 'sass', 'views']);
+Gulp.task('dist', ['clean-dist', 'distScripts']);
 
