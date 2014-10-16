@@ -1,4 +1,4 @@
-angular.module('angular-custom-select-examples', ['angular-custom-select'])
+angular.module 'angular-custom-select-examples', ['angular-custom-select']
 
   .controller 'ExamplesController', ($scope) ->
 
