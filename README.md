@@ -13,7 +13,7 @@ bower install angular-custom-select
 
 ### Or download it from GitHub
 
-In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download [that file](dist/angular-custom-select.min.js) and include it in your project.
+In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download <a href="dist/angular-custom-select.min.js" target="_blank">that file</a> and include it in your project.
 
 
 ## How do I use it?
@@ -24,9 +24,9 @@ Add `angular-custom-select` as a dependency for your app, like so:
 angular.module('your-amazing-app', ['angular-custom-select'])
 ```
 
-Then use `ng-repeat` and `ng-options` [as you normally would](https://docs.angularjs.org/api/ng/directive/select). At the moment, `angular-custom-select` can handle arrays of strings or objects, but it does not yet support iteration over objects. Below are some examples.
+Then use `ng-repeat` and `ng-options` <a href="https://docs.angularjs.org/api/ng/directive/select" target="_blank">as you normally would</a>. At the moment, `angular-custom-select` can handle arrays of strings or objects, but it does not yet support iteration over objects. Below are some examples.
 
-Do note that the `angular-custom-select` directive imposes no styling, so the dropdown won't look much like a dropdown out of the box. You can take a peek at [`src/scss/example.scss`](src/scss/example.scss) to get inspiration for styling your own.
+Do note that the `angular-custom-select` directive imposes no styling, so the dropdown won't look much like a dropdown out of the box. You can take a peek at <a href="src/scss/example.scss" target="_blank">`src/scss/example.scss`</a> to get inspiration for styling your own.
 
 ### Array of Strings
 
