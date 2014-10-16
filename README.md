@@ -35,7 +35,7 @@ $scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']
 ```
 
 ```html
-# View
+<!-- View -->
 <custom-select
 	ng-model="selectedValues.string"
 	ng-options="string for string in strings"
@@ -96,7 +96,7 @@ $scope.objects = [
 ```
 
 ```html
-# View
+<!-- View -->
 <custom-select
 	ng-model="selectedValues.object"
 	ng-options="object as object.name for object in objects"
