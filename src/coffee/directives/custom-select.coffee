@@ -56,14 +56,14 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
           # Compilation
           ###########################################################################
 
-          elements = []
+          childScopes = []
 
           scope.$watchCollection collectionName, (collection) ->
 
-            if elements.length
-              for element in elements
-                element.el.remove()
-                element.scope.$destroy()
+            if childScopes.length
+              for childScope in childScopes
+                childScope.$destroy()
+              childScopes = []
 
             iElem.empty()
 
@@ -82,6 +82,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
             optionScope = scope.$new()
             compiledOptionHTML = $compile(optionHTML)(optionScope)
             compiledSelectHTML.append compiledOptionHTML
+            childScopes.push optionScope
 
             for item, i in collection
               optionHTML = "<div class='#{ optionClass }'"
@@ -94,5 +95,6 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               optionScope[valueName] = item
               compiledOptionHTML = $compile(optionHTML)(optionScope)
               compiledSelectHTML.append compiledOptionHTML
+              childScopes.push optionScope
 
     }
