@@ -24,7 +24,7 @@ Add `angular-custom-select` as a dependency to your app, like so:
 angular.module('your-amazing-app', ['angular-custom-select'])
 ```
 
-Then use `ng-repeat` and `ng-options` [as you normally would](https://docs.angularjs.org/api/ng/directive/select). At the moment, `angular-custom-select` can handle arrays of strings or objects, but objects aren't supported yet. Below are some examples.
+Then use `ng-repeat` and `ng-options` [as you normally would](https://docs.angularjs.org/api/ng/directive/select). At the moment, `angular-custom-select` can handle arrays of strings or objects, but it does not yet support iteration over objects. Below are some examples.
 
 ### Array of Strings
 
