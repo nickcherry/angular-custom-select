@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="angular-custom-select">
+  
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Angular Custom Select</title>
+    <link rel="stylesheet" type="text/css" href="css/example.css" />
+  </head>
+  
+  <body ng-controller="ExamplesController" ng-class="{ initialized: initialized }">
+
+    <section class="example-1">
+      <h3>String Example</h3>
+      <custom-select
+        ng-model="selectedValues.string"
+        ng-options="string for string in strings"
+        placeholder="Select one of these string values...">
+      </custom-select>
+      <div class="selected-value">
+        Selected Value: {{ selectedValues.string || 'N/A' }}
+      </div>
+    </section>
+
+    <section class="example-2">
+      <h3>Object Example</h3>
+      <custom-select
+        ng-model="selectedValues.object"
+        ng-options="object as object.name for object in objects"
+        placeholder="Select one of these object values...">
+      </custom-select>
+      <div class="selected-value">
+        Selected Value: {{ selectedValues.object || 'N/A' }}
+      </div>
+    </section>
+    
+    <script src="js/example.js"></script>
+
+  </body>
+</html>
