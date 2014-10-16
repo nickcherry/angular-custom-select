@@ -53,7 +53,9 @@ section {
   margin-top: 32px;
   padding-bottom: 32px;
   &:first-of-type {
+    border-top: 1px solid $grey;
     margin-top: 0;
+    padding-top: 32px;
   }
 }
 
@@ -88,7 +90,7 @@ h2 {
   border: 1px solid $blue;
   font-size: 18px;
   left: 0;
-  max-height: $custom-select-height;
+  max-height: $custom-select-height - 1px;
   overflow: hidden;
   position: absolute;
   right: 0;
@@ -104,7 +106,7 @@ h2 {
     border-bottom: 1px solid $grey;
     color: $black;
     cursor: pointer;
-    height: $custom-select-height;
+    height: $custom-select-height - 1px;
     position: relative;
     transition: all 0.1s linear 0s;
 
@@ -135,4 +137,12 @@ h2 {
     }
 
   }
+
+  @media screen and (max-width: 400px) {
+    font-size: 16px;
+    .option .value {
+      padding-top: 14px;
+    }
+  }
+
 }
