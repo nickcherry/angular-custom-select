@@ -7,7 +7,7 @@ angular.module('angular-custom-select-examples', ['angular-custom-select'])
       { name: 'Option A' }
       , { name: 'Option B' }
       , { name: 'Option C' }
-      , { name: 'Option D' }
+      , { name: 'Option D', disabled: true }
       , { name: 'Option E' }
     ]
 

@@ -26,7 +26,8 @@
       <custom-select
         ng-model="selectedValues.object"
         ng-options="object as object.name for object in objects"
-        placeholder="Select one of these object values...">
+        placeholder="Select one of these object values..."
+        disabled-attribute="disabled">
       </custom-select>
       <div class="selected-value">
         Selected Value: {{ selectedValues.object || 'N/A' }}

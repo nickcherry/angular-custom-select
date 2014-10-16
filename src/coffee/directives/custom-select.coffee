@@ -20,14 +20,16 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
           expandedClass = iAttrs.expandedClass or 'expanded'
           placeholderClass = iAttrs.placeholderClass or 'placeholder'
           placeholderLabel = iAttrs.placeholder or 'Select a value...'
+          disabledAttribute = iAttrs.disabledAttribute or null
+          disabledClass = iAttrs.disabledClass or 'disabled'
           
           ngModelName = iAttrs.ngModel
 
           ngOptions = iAttrs.ngOptions.trim()
           ngOptionParts = ngOptions.match /^\s*([\w.]*)\s*(as)?\s*([\w.]*)\s*(for)\s*([\w.]*)\s*(in)\s*(\w.*)/
 
-          selectExpression = ngOptionParts[1]
-          labelExpression = ngOptionParts[3] or selectExpression
+          objectExpression = ngOptionParts[1]
+          labelExpression = ngOptionParts[3] or objectExpression
           valueName = ngOptionParts[5]
           collectionName = ngOptionParts[7]
 
@@ -42,6 +44,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
             scope.expanded = !scope.expanded
 
           scope.selectItem = (item) ->
+            return if disabledAttribute and item[disabledAttribute]
             ngModel.$setViewValue item
             scope.expanded = false
 
@@ -82,11 +85,13 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
             optionScope = scope.$new()
             compiledOptionHTML = $compile(optionHTML)(optionScope)
             compiledSelectHTML.append compiledOptionHTML
-            childScopes.push optionScope
+            optionScopes.push optionScope
 
             for item, i in collection
               optionHTML = "<div class='#{ optionClass }'"
-              optionHTML += " ng-click='selectItem(#{ selectExpression })'>"
+              if disabledClass
+                optionHTML += " ng-class='{ \"#{ disabledClass }\": #{ objectExpression }.disabled }'" 
+              optionHTML += " ng-click='selectItem(#{ objectExpression })'>"
               optionHTML += "<span class='#{ optionValueWrapperClass }'>"
               optionHTML += "{{ #{ labelExpression } }}"
               optionHTML += "</span>"
@@ -95,6 +100,6 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               optionScope[valueName] = item
               compiledOptionHTML = $compile(optionHTML)(optionScope)
               compiledSelectHTML.append compiledOptionHTML
-              childScopes.push optionScope
+              optionScopes.push optionScope
 
     }

@@ -72,5 +72,10 @@ h3 {
       background-color: #efefef;
     }
 
+    &.disabled {
+      background-color: #666666;
+      color: #999999;
+    }
+
   }
 }

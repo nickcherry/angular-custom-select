@@ -118,6 +118,8 @@ The following options can be configured by adding attributes to the `custom-sele
 - __`expanded-class`__ specifies the class applied to the outermost custom dropdown element when the menu is open, defaults to `expanded`.
 - __`placeholder-class`__ specifies the class applied to the default/placeholder option element, defaults to `placeholder`.
 - __`placeholder-label`__ specifies the text of the default/placeholder option, defaults to `Select a value...`.
+- __`disabled-attribute`__ specifies the attribute to trigger a disabled state for options, only works for objects, defaults to `null`.
+- __`disabled-class`__ specifies the class applied to disabled options, defaults to `disabled`.
 
 ## Working with the Source
 
