@@ -18,7 +18,7 @@ In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download [
 
 ## How do I use it?
 
-Add `angular-custom-select` as a dependency to your app, like so:
+Add `angular-custom-select` as a dependency for your app, like so:
 
 ```coffeescript
 angular.module('your-amazing-app', ['angular-custom-select'])
