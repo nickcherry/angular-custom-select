@@ -1,10 +1,36 @@
 /*****************************************************************/
+/* Includes */
+/*****************************************************************/
+
+@import "../../bower_components/normalize-scss/normalize.scss";
+
+
+/*****************************************************************/
+/* Settings */
+/*****************************************************************/
+
+/* Colors */
+$black: #000000;
+$blue: #0abaee;
+$light-grey: #f4f4f4;
+$grey: #e8e8e8;
+$pink: #ea1f4a;
+$white: #ffffff;
+
+/* Dimensions */
+$custom-select-height: 50px;
+
+
+/*****************************************************************/
 /* Example Page */
 /*****************************************************************/
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  background-color: $white;
+  color: $black;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
+  font-weight: 400;
   margin: 24px;
   opacity: 0;
   padding: 0;
@@ -15,21 +41,42 @@ body.initialized {
   opacity: 1;
 }
 
-section {
-  margin-bottom: 38px;
+#wrapper {
+  margin: auto;
+  min-width: 300px;
+  position: relative;
+  width: 67%;
 }
 
-h3 {
-  margin: 0 auto 4px;
+section {
+  border-bottom: 1px solid $grey;
+  margin-top: 32px;
+  padding-bottom: 32px;
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+h1 {
+  color: $pink;
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+
+h2 {
+  margin: 0 auto 12px;
 }
 
 .selected-value {
-  font-size: 12px;
-  margin-top: 8px;
+  margin-top: $custom-select-height + 24px;
 }
 
-.example-1 .custom-select { z-index: 5; }
-.example-2 .custom-select { z-index: 4; }
+.gist {
+  margin-top: 28px;
+}
+
+.example-1 .custom-select { z-index: 150; }
+.example-2 .custom-select { z-index: 149; }
 
 
 /*****************************************************************/
@@ -38,52 +85,53 @@ h3 {
 
 .custom-select {
   
-  $custom-select-height: 32px;
-
-  border: 1px solid #dddddd;
-  border-radius: 6px;
-  font-size: 12px;
+  border: 1px solid $blue;
+  font-size: 18px;
+  left: 0;
   max-height: $custom-select-height;
   overflow: hidden;
   position: absolute;
-  transition: max-height 0.35s linear 0s;
-  width: 400px;
+  right: 0;
+  transition: max-height 0.28s linear 0s;
 
   &.expanded {
-    max-height: 300px;
+    max-height: $custom-select-height * 6;
   }
 
   .option {
 
-    background-color: #ededed;
-    border-bottom: 1px solid #dddddd;
+    background-color: $white;
+    border-bottom: 1px solid $grey;
+    color: $black;
     cursor: pointer;
     height: $custom-select-height;
     position: relative;
+    transition: all 0.1s linear 0s;
 
     .value {
       display: block;
-      padding: 8px 8px 0;
+      padding: 12px 12px 0;
     }
 
     &:last-of-type {
       border: none;
     }
     
-    &.placeholder {
-      background-color: #fefefe;
-      &:hover {
-        background-color: #fefefe;
-      }
-    }
-
     &:hover {
-      background-color: #efefef;
+      background-color: $blue;
     }
 
     &.disabled {
-      background-color: #666666;
-      color: #999999;
+      background-color: $black;
+      color: $grey;
+    }
+
+    &.placeholder {
+      background-color: $blue;
+      color: $white;
+      &:hover {
+        background-color: lighten($blue, 7%);
+      }
     }
 
   }
