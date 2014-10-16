@@ -26,6 +26,8 @@ angular.module('your-amazing-app', ['angular-custom-select'])
 
 Then use `ng-repeat` and `ng-options` [as you normally would](https://docs.angularjs.org/api/ng/directive/select). At the moment, `angular-custom-select` can handle arrays of strings or objects, but it does not yet support iteration over objects. Below are some examples.
 
+Do note that the `angular-custom-select` directive imposes no styling, so the dropdown won't look much like a dropdown out of the box. You can take a peek at [`src/scss/example.scss`](src/scss/example.scss) to get inspiration for styling your own.
+
 ### Array of Strings
 
 ```coffeescript
