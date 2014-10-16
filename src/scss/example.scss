@@ -18,7 +18,7 @@ $pink: #ea1f4a;
 $white: #ffffff;
 
 /* Dimensions */
-$custom-select-height: 50px;
+$custom-select-option-height: 50px;
 
 
 /*****************************************************************/
@@ -77,7 +77,7 @@ h2 {
 }
 
 .selected-value {
-  margin-top: $custom-select-height + 24px;
+  margin-top: $custom-select-option-height + 24px;
 }
 
 .gist {
@@ -106,7 +106,7 @@ h2 {
   border: 1px solid $blue;
   font-size: 18px;
   left: 0;
-  max-height: $custom-select-height - 1px;
+  max-height: $custom-select-option-height - 1px;
   overflow: hidden;
   position: absolute;
   right: 0;
@@ -114,7 +114,7 @@ h2 {
   transition: max-height 0.28s linear 0s;
 
   &.expanded {
-    max-height: $custom-select-height * 6;
+    max-height: $custom-select-option-height * 6;
   }
 
   .option {
@@ -123,13 +123,13 @@ h2 {
     border-bottom: 1px solid $grey;
     color: $black;
     cursor: pointer;
-    height: $custom-select-height - 1px;
+    height: $custom-select-option-height - 1px;
     position: relative;
     transition: all 0.1s linear 0s;
 
     .value {
       display: block;
-      line-height: $custom-select-height - 2px;
+      line-height: $custom-select-option-height - 2px;
       padding: 0 12px;
     }
 
