@@ -11,10 +11,15 @@
 
 /* Colors */
 $black: #000000;
+
+$grey: #bbbbbb;
+$light-grey: #e8e8e8;
+$very-light-grey: #f4f4f4;
+
 $blue: #0abaee;
-$light-grey: #f4f4f4;
-$grey: #e8e8e8;
+
 $pink: #ea1f4a;
+
 $white: #ffffff;
 
 /* Dimensions */
@@ -49,11 +54,11 @@ body.initialized {
 }
 
 section {
-  border-bottom: 1px solid $grey;
+  border-bottom: 1px solid $light-grey;
   margin-top: 32px;
   padding-bottom: 32px;
   &:first-of-type {
-    border-top: 1px solid $grey;
+    border-top: 1px solid $light-grey;
     margin-top: 0;
     padding-top: 32px;
   }
@@ -101,6 +106,7 @@ h2 {
 .custom-select {
   
   border: 1px solid $blue;
+  box-shadow: 0px 0px 2px 0px $grey;
   font-size: 18px;
   left: 0;
   max-height: $custom-select-option-height - 1px;
@@ -117,7 +123,7 @@ h2 {
   .option {
 
     background-color: $white;
-    border-bottom: 1px solid $grey;
+    border-bottom: 1px solid $light-grey;
     color: $black;
     cursor: pointer;
     height: $custom-select-option-height - 1px;
@@ -140,7 +146,7 @@ h2 {
 
     &.disabled {
       background-color: $black;
-      color: $grey;
+      color: $light-grey;
     }
 
     &.placeholder {
