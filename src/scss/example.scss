@@ -31,7 +31,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  margin: 24px;
+  margin: 20px;
   opacity: 0;
   padding: 0;
   transition: opacity 0.25s ease-out 0s;
@@ -43,7 +43,7 @@ body.initialized {
 
 #wrapper {
   margin: auto;
-  min-width: 300px;
+  min-width: 280px;
   position: relative;
   width: 67%;
 }
@@ -110,6 +110,7 @@ h2 {
   overflow: hidden;
   position: absolute;
   right: 0;
+  transform: translate3d(0,0,0); // enable hardware acceleration
   transition: max-height 0.28s linear 0s;
 
   &.expanded {
