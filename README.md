@@ -108,6 +108,16 @@ $scope.objects = [
 </div>
 ```
 
+### Options
+
+The following options can be configured by adding attributes to the `custom-select` element:
+
+- __`select-class`__ specifies the class applied to the outermost custom dropdown element, defaults to `custom-select`.
+- __`option-class`__ specifies the class applied to each option element, defaults to `option`.
+- __`option-value-wrapper-class`__ specifies the class applied to the value text element for each option element, defaults to `value`.
+- __`expanded-class`__ specifies the class applied to the outermost custom dropdown element when the menu is open, defaults to `expanded`.
+- __`placeholder-class`__ specifies the class applied to the default/placeholder option element, defaults to `placeholder`.
+- __`placeholder-label`__ specifies the text of the default/placeholder option, defaults to `Select a value...`.
 
 ## Working with the Source
 
