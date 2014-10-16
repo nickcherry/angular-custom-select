@@ -1,13 +1,15 @@
-angular.module('angular-custom-select').controller 'ExamplesController', ($scope, $timeout) ->
+angular.module('angular-custom-select-examples', ['angular-custom-select'])
 
-  $scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']
-  $scope.objects = [
-    { name: 'Option A' }
-    , { name: 'Option B' }
-    , { name: 'Option C' }
-    , { name: 'Option D' }
-    , { name: 'Option E' }
-  ]
+  .controller 'ExamplesController', ($scope, $timeout) ->
 
-  $scope.selectedValues = {}
-  $scope.initialized = true
+    $scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']
+    $scope.objects = [
+      { name: 'Option A' }
+      , { name: 'Option B' }
+      , { name: 'Option C' }
+      , { name: 'Option D' }
+      , { name: 'Option E' }
+    ]
+
+    $scope.selectedValues = {}
+    $scope.initialized = true
