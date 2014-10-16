@@ -68,8 +68,8 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
             iElem.empty()
 
             selectHTML = "<div class='#{ selectClass }'"
-            selectHTML += " ng-class='{ #{ expandedClass }: expanded }'>"
-            selectHTML += "<div>"
+            selectHTML += " ng-class='{ \"#{ expandedClass }\": expanded }'>"
+            selectHTML += "</div>"
             compiledSelectHTML = $compile(selectHTML)(scope)
             iElem.append compiledSelectHTML
 

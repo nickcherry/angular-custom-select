@@ -3,21 +3,109 @@
 ### Array of Strings
 
 ```
-	<custom-select
-		ng-model="selectedValues.string"
-		ng-options="string for string in strings"
-		placeholder="Select one of these string values...">
-	</custom-select>
+# Controller
+$scope.selectedValues = {}
+$scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']	
+
+# View
+<custom-select
+	ng-model="selectedValues.string"
+	ng-options="string for string in strings"
+	placeholder="Select one of these string values...">
+</custom-select>
+```
+...will produce the following markup:
+
+```
+<div class="custom-select" ng-class="{ 'expanded': expanded }">
+  <div class="placeholder option">
+    <span class="value">
+      Select one of these string values...
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option A
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option B
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option C
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option D
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option E
+    </span>
+  </div>
+</div>	
 ```
 
 ### Array of Objects
 
 ```
-	<custom-select
-		ng-model="selectedValues.object"
- 		ng-options="object as object.name for object in objects"
- 		placeholder="Select one of these object values...">
-	</custom-select> 
+# Controller
+$scope.selectedValues = {}
+$scope.objects = [
+ 	{ name: 'Option A' }
+ 	, { name: 'Option B' }
+ 	, { name: 'Option C' }
+ 	, { name: 'Option D' }
+	, { name: 'Option E' }
+]
+
+# View
+<custom-select
+	ng-model="selectedValues.object"
+	ng-options="object as object.name for object in objects"
+	placeholder="Select one of these object values...">
+</custom-select> 
+```
+...will produce the following markup:
+
+```
+<div class="custom-select" ng-class="{ 'expanded': expanded }">
+  <div class="placeholder option">
+    <span class="value">
+      Select one of these string values...
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option A
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option B
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option C
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option D
+    </span>
+  </div>
+  <div class="option">
+    <span class="value">
+      Option E
+    </span>
+  </div>
+</div>
 ```
 
 
