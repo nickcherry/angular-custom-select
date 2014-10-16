@@ -1,12 +1,40 @@
-## Usage
+## What is angular-custom-select?
+
+It's an AngularJS directive that builds easily styleable, functional dropdowns using `div`s, rather than the not-so-customizable `select` element. It supports `ng-model` and `ng-options`, as well as options to customize placeholder text, control disabled states, and specify the classes applied to the dropdown's elements.
+
+
+## How can I get it?
+
+### Use Bower (coming soon!)
+
+```
+bower install angular-custom-select
+```
+
+### Or download it from GitHub
+
+In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download that and add it to your project.
+
+
+## How do I use it?
+
+Add `angular-custom-select` as a dependency to your app, like so:
+
+```coffeescript
+angular.module('your-amazing-app', ['angular-custom-select'])
+```
+
+Then use `ng-repeat` and `ng-options` [as you normally would](https://docs.angularjs.org/api/ng/directive/select). At the moment, `angular-custom-select` can handle arrays of strings or objects, but objects aren't supported yet. Below are some examples.
 
 ### Array of Strings
 
-```
+```coffeescript
 # Controller
 $scope.selectedValues = {}
-$scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']	
+$scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E'] 
+```
 
+```html
 # View
 <custom-select
 	ng-model="selectedValues.string"
@@ -14,9 +42,11 @@ $scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']
 	placeholder="Select one of these string values...">
 </custom-select>
 ```
-...will produce the following markup:
 
-```
+...will produce the following markup and update the `selectedValues.string` model as expected:
+
+
+```html
 <div class="custom-select" ng-class="{ 'expanded': expanded }">
   <div class="placeholder option">
     <span class="value">
@@ -53,7 +83,7 @@ $scope.strings = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E']
 
 ### Array of Objects
 
-```
+```coffeescript
 # Controller
 $scope.selectedValues = {}
 $scope.objects = [
@@ -63,7 +93,9 @@ $scope.objects = [
  	, { name: 'Option D' }
 	, { name: 'Option E' }
 ]
+```
 
+```html
 # View
 <custom-select
 	ng-model="selectedValues.object"
@@ -71,9 +103,11 @@ $scope.objects = [
 	placeholder="Select one of these object values...">
 </custom-select> 
 ```
-...will produce the following markup:
 
-```
+...will produce the following markup and update the `selectedValues.object` model as expected:
+
+
+```html
 <div class="custom-select" ng-class="{ 'expanded': expanded }">
   <div class="placeholder option">
     <span class="value">
@@ -110,7 +144,7 @@ $scope.objects = [
 
 ### Options
 
-The following options can be configured by adding attributes to the `custom-select` element:
+You can also configure a dropdown by adding attributes to the `custom-select` element:
 
 - __`select-class`__ specifies the class applied to the outermost custom dropdown element, defaults to `custom-select`.
 - __`option-class`__ specifies the class applied to each option element, defaults to `option`.
