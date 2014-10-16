@@ -60,9 +60,12 @@ section {
 }
 
 h1 {
-  color: $pink;
-  font-size: 30px;
-  margin-bottom: 32px;
+  a {
+    color: $pink;
+    font-size: 30px;
+    margin-bottom: 32px;
+    text-decoration: none;
+  }
 }
 
 h2 {
