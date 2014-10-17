@@ -35,7 +35,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
 
           
           ###########################################################################
-          # Controller
+          # Controller Vars / Methods
           ###########################################################################
 
           scope.expanded = false
@@ -60,27 +60,24 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
             return item if firstDotIndex is -1
             item[labelExpression.substr(firstDotIndex + 1)]
 
-          document.addEventListener 'click', scope.onDocumentClick
-
-          scope.$on '$destroy', ->
-            document.removeEventListener 'click', scope.onDocumentClick
-
-
+          
           ###########################################################################
-          # Compilation
+          # Compilation / DOM Modification
           ###########################################################################
 
           optionScopes = []
 
-          scope.$watchCollection collectionName, (collection) ->
-
+          removeElementsAndOptionScopes = ->
             if optionScopes.length
               for optionScope in optionScopes
                 optionScope.$destroy()
               optionScopes = []
-
             iElem.empty()
 
+          scope.$watchCollection collectionName, (collection) ->
+
+            removeElementsAndOptionScopes()
+          
             selectHTML = "<div class='#{ selectClass }'"
             selectHTML += " ng-class='{ \"#{ expandedClass }\": expanded }'>"
             selectHTML += "</div>"
@@ -112,5 +109,16 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               compiledOptionHTML = $compile(optionHTML)(optionScope)
               compiledSelectHTML.append compiledOptionHTML
               optionScopes.push optionScope
+
+          document.addEventListener 'click', scope.onDocumentClick
+
+
+          ###########################################################################
+          # Teardown
+          ###########################################################################
+
+          scope.$on '$destroy', ->
+            document.removeEventListener 'click', scope.onDocumentClick
+            removeElementsAndOptionScopes()
 
     }
