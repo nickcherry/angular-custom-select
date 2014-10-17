@@ -5,16 +5,13 @@ It's an AngularJS directive that builds easily styleable, functional dropdowns u
 
 ## How can I get it?
 
-### Use Bower (coming soon!)
+### Use Bower
 
 ```
-bower install angular-custom-select
+bower --save install angular-custom-select
 ```
 
-### Or download it from GitHub
-
-In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download <a href="dist/angular-custom-select.min.js" target="_blank">that file</a> and include it in your project.
-
+Then include the script in your app after Angular.
 
 ## How do I use it?
 
