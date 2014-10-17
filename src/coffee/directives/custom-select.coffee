@@ -100,8 +100,8 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
 
             for item, i in collection
               optionHTML = "<div class='#{ optionClass }'"
-              if disabledClass
-                optionHTML += " ng-class='{ \"#{ disabledClass }\": #{ objectExpression }.disabled }'" 
+              if disabledAttribute and disabledClass
+                optionHTML += " ng-class='{ \"#{ disabledClass }\": #{ objectExpression }.#{ disabledAttribute } }'" 
               optionHTML += " ng-click='onItemClick(#{ objectExpression }, $event)'>"
               optionHTML += "<span class='#{ optionValueWrapperClass }'>"
               optionHTML += "{{ #{ labelExpression } }}"
