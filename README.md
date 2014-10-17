@@ -15,7 +15,7 @@ Then include the script in your app (after including Angular, of course).
 
 ### Or download it from GitHub
 
-In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download <a href="dist/angular-custom-select.min.js" target="_blank">that file</a> and include it in your project.
+In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download <a href="dist/angular-custom-select.min.js" target="_blank">that file</a> and include it in your app.
 
 ## How do I use it?
 
