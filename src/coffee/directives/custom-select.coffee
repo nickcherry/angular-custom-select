@@ -111,7 +111,6 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               optionScopes.push optionScope
 
           document.body.addEventListener 'mousedown', scope.onOutsideClick
-          document.body.addEventListener 'touchstart', scope.onOutsideClick
 
 
           ###########################################################################
@@ -120,7 +119,6 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
 
           scope.$on '$destroy', ->
             document.body.removeEventListener 'mousedown', scope.onOutsideClick
-            document.body.removeEventListener 'touchstart', scope.onOutsideClick
             removeElementsAndOptionScopes()
 
     }
