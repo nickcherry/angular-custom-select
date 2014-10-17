@@ -8,7 +8,7 @@ It's an AngularJS directive that builds easily styleable, functional dropdowns u
 ### Use Bower
 
 ```
-bower --save install angular-custom-select
+bower install --save angular-custom-select
 ```
 
 Then include the script in your app (after including Angular, of course).
