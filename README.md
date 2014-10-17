@@ -11,7 +11,7 @@ It's an AngularJS directive that builds easily styleable, functional dropdowns u
 bower --save install angular-custom-select
 ```
 
-Then include the script in your app after Angular.
+Then include the script in your app (after including Angular, of course).
 
 ### Or download it from GitHub
 
