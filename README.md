@@ -13,6 +13,10 @@ bower --save install angular-custom-select
 
 Then include the script in your app after Angular.
 
+### Or download it from GitHub
+
+In the `/dist` directory, you'll find `angular-custom-select.min.js`. Download <a href="dist/angular-custom-select.min.js" target="_blank">that file</a> and include it in your project.
+
 ## How do I use it?
 
 Add `angular-custom-select` as a dependency for your app, like so:
