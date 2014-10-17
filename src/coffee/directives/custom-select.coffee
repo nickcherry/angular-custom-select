@@ -40,7 +40,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
 
           scope.expanded = false
 
-          scope.onDocumentClick = (evt) ->
+          scope.onOutsideClick = (evt) ->
             scope.expanded = false
             scope.$apply()
 
@@ -110,7 +110,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               compiledSelectHTML.append compiledOptionHTML
               optionScopes.push optionScope
 
-          document.addEventListener 'click', scope.onDocumentClick
+          document.body.addEventListener 'click', scope.onOutsideClick
 
 
           ###########################################################################
@@ -118,7 +118,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
           ###########################################################################
 
           scope.$on '$destroy', ->
-            document.removeEventListener 'click', scope.onDocumentClick
+            document.body.removeEventListener 'click', scope.onOutsideClick
             removeElementsAndOptionScopes()
 
     }
