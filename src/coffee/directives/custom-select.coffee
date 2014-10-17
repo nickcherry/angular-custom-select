@@ -85,7 +85,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
             iElem.append compiledSelectHTML
 
             optionHTML = "<div class='#{ placeholderClass } #{ optionClass }'"
-            optionHTML += " ng-click='onPlaceholderClick($event)'>"
+            optionHTML += " ng-mousedown='onPlaceholderClick($event)'>"
             optionHTML += "<span class='#{ optionValueWrapperClass }'>"
             optionHTML += "{{ formatItemValue(#{ ngModelName }) || '#{ placeholderLabel }' }}"
             optionHTML += "</span>"
@@ -99,7 +99,7 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               optionHTML = "<div class='#{ optionClass }'"
               if disabledAttribute and disabledClass
                 optionHTML += " ng-class='{ \"#{ disabledClass }\": #{ objectExpression }.#{ disabledAttribute } }'" 
-              optionHTML += " ng-click='onItemClick(#{ objectExpression }, $event)'>"
+              optionHTML += " ng-mousedown='onItemClick(#{ objectExpression }, $event)'>"
               optionHTML += "<span class='#{ optionValueWrapperClass }'>"
               optionHTML += "{{ #{ labelExpression } }}"
               optionHTML += "</span>"
@@ -110,7 +110,8 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
               compiledSelectHTML.append compiledOptionHTML
               optionScopes.push optionScope
 
-          document.body.addEventListener 'click', scope.onOutsideClick
+          document.body.addEventListener 'mousedown', scope.onOutsideClick
+          document.body.addEventListener 'touchstart', scope.onOutsideClick
 
 
           ###########################################################################
@@ -118,7 +119,8 @@ angular.module('angular-custom-select', []).directive 'customSelect', ($compile)
           ###########################################################################
 
           scope.$on '$destroy', ->
-            document.body.removeEventListener 'click', scope.onOutsideClick
+            document.body.removeEventListener 'mousedown', scope.onOutsideClick
+            document.body.removeEventListener 'touchstart', scope.onOutsideClick
             removeElementsAndOptionScopes()
 
     }
